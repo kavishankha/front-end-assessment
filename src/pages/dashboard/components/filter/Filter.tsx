@@ -1,12 +1,32 @@
 import {Button, Center, Heading, Box, Grid, GridItem} from "@chakra-ui/react"
 import {DropDown} from "@commonComponents";
-import {useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 
 export const Filter = () => {
 
     const [category, setCategory] = useState<string[]>([]);
-    const [selected, setSelected] = useState<string[]>([]);
+    const [product, setProduct] = useState<string[]>([]);
+    // const [disable, setDisable] = useState<boolean>(true);
+
+    useEffect(() => {
+        //fetch for app catogories and set the state for category
+    }, []);
+
+    const dropDownDisable = category.length === 0;
+    const butonDisable = product.length === 0;
+
+    useEffect(() => {
+        // fetch product
+    }, [category]);
+
+    useEffect(() => {
+        // product pie change change
+    }, [product]);
+
+    const  runReport= useCallback(() => {
+       // fech  product data
+    }, [product]);
 
 
     return (
@@ -43,10 +63,10 @@ export const Filter = () => {
                         <DropDown
                             defaultMessage="Choose a country"
                             dropDownItems={  ["United Kingdom", "Canada", "United States"]}
-                            selectedItems={selected}
-                            onSelectionChange={setSelected}
+                            selectedItems={product}
+                            onSelectionChange={setProduct}
                             multipleSelection={true}
-                            disabled={false}
+                            disabled={dropDownDisable}
                         />
                     </Box>
                 </GridItem>
@@ -57,7 +77,12 @@ export const Filter = () => {
                 <GridItem rowSpan={1} colSpan={3}>
                     <Box h="100%" padding="5">
                         <Center h="100%">
-                            <Button width="100%">Cancel</Button>
+                            <Button width="100%"
+                                    onClick={
+                                        runReport()// handle run report action
+                                    }
+                                    disabled={butonDisable}
+                            > run report</Button>
                         </Center>
                     </Box>
                 </GridItem>
