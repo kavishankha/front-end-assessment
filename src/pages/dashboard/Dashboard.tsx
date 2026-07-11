@@ -1,4 +1,4 @@
-import { ColumnChart ,Filter ,PieChart} from "@dashboardComponents";
+import {ColumnChart, Filter, PieChart} from "@dashboardComponents";
 
 export const Dashboard = () => {
     return <div>
