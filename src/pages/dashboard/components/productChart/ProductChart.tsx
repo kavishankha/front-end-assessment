@@ -1,5 +1,7 @@
-import { ChartRouter, type ChartType } from "@commonComponents";
-import type { Options } from "highcharts";
+import {ChartRouter, type ChartType} from "@commonComponents";
+import type {Options} from "highcharts";
+import {Center} from "@chakra-ui/react";
+import {ProductCategoryData} from "@/mockData/prodcuctCatagory.ts";
 
 const chartType: ChartType = "pie";
 
@@ -35,33 +37,21 @@ const chartOptions: Options = {
         pie: {
             dataLabels: {
                 enabled: true,
-                format: "{point.name}: {point.y}",
+                format: "{point.name}",
             },
         },
     },
 };
 
-const productCategoryData = [
-    {
-        name: "Chrome",
-        y: 70,
-    },
-    {
-        name: "Firefox",
-        y: 20,
-    },
-    {
-        name: "Edge",
-        y: 10,
-    },
-];
 
 export const ProductChart = () => {
     return (
-        <ChartRouter
-            type={chartType}
-            options={chartOptions}
-            data={productCategoryData}
-        />
+        <Center h="100%">
+            <ChartRouter
+                type={chartType}
+                options={chartOptions}
+                data={ProductCategoryData}
+            />
+        </Center>
     );
 };

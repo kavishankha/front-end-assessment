@@ -21,6 +21,7 @@
       "@/*": ["./src/*"],
       "@commonComponents": ["./src/components/common"],
       "@pages": ["./src/pages"],
+      "@mockData": ["./src/mockData"],
       "@dashboardComponents": ["./src/pages/dashboard/components"]
     },
 
