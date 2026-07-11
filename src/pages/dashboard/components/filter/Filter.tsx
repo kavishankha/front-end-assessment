@@ -11,6 +11,7 @@ export const Filter = () => {
 
     useEffect(() => {
         //fetch for app catogories and set the state for category
+        //  //cloble state chart type update to pie
     }, []);
 
     const dropDownDisable = category.length === 0;
@@ -21,12 +22,21 @@ export const Filter = () => {
     }, [category]);
 
     useEffect(() => {
-        // product pie change change
+        // updated product show in pi chart
     }, [product]);
 
-    const  runReport= useCallback(() => {
+    // clean fetch poduct data
+    const  runReport= useCallback((e) => {
        // fech  product data
+        // globle state chart type update to colomn
     }, [product]);
+
+    // clean funtion  clear both dropdown and show defolt massage
+    const  clear= useCallback((e) => {
+        setCategory([])
+        setProduct([])
+    }, []);
+
 
 
     return (
@@ -43,6 +53,7 @@ export const Filter = () => {
                     <Box h="100%">
                         <Center h="100%">
                             <Button variant="outline">Clear</Button>
+                            onclick={clear()}// handle clear action
                         </Center>
                     </Box>
                 </GridItem>
