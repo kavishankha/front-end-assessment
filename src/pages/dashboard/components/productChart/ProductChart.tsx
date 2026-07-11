@@ -1,7 +1,7 @@
-import { Chart } from "@highcharts/react";
-import { PieSeries } from "@highcharts/react/series/Pie";
-import { Center } from "@chakra-ui/react";
+import { ChartRouter, type ChartType } from "@commonComponents";
 import type { Options } from "highcharts";
+
+const chartType: ChartType = "pie";
 
 const chartOptions: Options = {
     chart: {
@@ -58,13 +58,10 @@ const productCategoryData = [
 
 export const ProductChart = () => {
     return (
-        <Center h="100%">
-            <Chart options={chartOptions}>
-                <PieSeries
-                    name="Browsers"
-                    data={productCategoryData}
-                />
-            </Chart>
-        </Center>
+        <ChartRouter
+            type={chartType}
+            options={chartOptions}
+            data={productCategoryData}
+        />
     );
 };
