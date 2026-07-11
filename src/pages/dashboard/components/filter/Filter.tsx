@@ -2,9 +2,12 @@ import {Button, Center, Heading, Box, Grid, GridItem} from "@chakra-ui/react"
 import {DropDown} from "@commonComponents";
 import {useState} from "react";
 
+
 export const Filter = () => {
 
+    const [category, setCategory] = useState<string[]>([]);
     const [selected, setSelected] = useState<string[]>([]);
+
 
     return (
         <Box width="100%" h="100%">
@@ -27,10 +30,11 @@ export const Filter = () => {
                     <Box h="100%" padding="5">
                         <DropDown
                             defaultMessage="Choose a country"
-                            dropDownItems={["United Kingdom", "Canada", "United States"]}
-                            selectedItems={selected}
-                            onChange={setSelected}
+                            dropDownItems={  ["United Kingdom", "Canada", "United States"]}
+                            selectedItems={category}
+                            onSelectionChange={setCategory}
                             multipleSelection={false}
+                            disabled={false}
                         />
                     </Box>
                 </GridItem>
@@ -38,10 +42,11 @@ export const Filter = () => {
                     <Box h="100%" padding="5">
                         <DropDown
                             defaultMessage="Choose a country"
-                            dropDownItems={["United Kingdom", "Canada", "United States"]}
+                            dropDownItems={  ["United Kingdom", "Canada", "United States"]}
                             selectedItems={selected}
-                            onChange={setSelected}
+                            onSelectionChange={setSelected}
                             multipleSelection={true}
+                            disabled={false}
                         />
                     </Box>
                 </GridItem>

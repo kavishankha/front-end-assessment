@@ -1,54 +1,63 @@
-import {For, NativeSelect} from "@chakra-ui/react";
-import * as React from "react";
+import {Portal, Select, createListCollection} from "@chakra-ui/react";
+import {useMemo} from "react";
 
 interface DropDownProps {
     defaultMessage?: string;
     dropDownItems: string[];
-    selectedItems?: string[];
+    selectedItems: string[];
     multipleSelection?: boolean;
-    onChange?: (values: string[]) => void;
+    disabled?: boolean;
+    onSelectionChange?: (value: string[]) => void;
 }
 
 export const DropDown = ({
                              defaultMessage = "Select an option",
                              dropDownItems,
-                             selectedItems = [],
+                             selectedItems,
                              multipleSelection = false,
-                             onChange,
+                             disabled = false,
+                             onSelectionChange,
                          }: DropDownProps) => {
-    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        if (!onChange) return;
 
-        if (multipleSelection) {
-            const values = Array.from(e.target.selectedOptions).map((o) => o.value);
-            onChange(values);
-        } else {
-            onChange([e.target.value]);
-        }
-    };
+    const collection = useMemo(
+        () => createListCollection({
+            items: dropDownItems.map((item) => ({label: item, value: item})),
+        }),
+        [dropDownItems]
+    );
 
     return (
-        <NativeSelect.Root>
-            <NativeSelect.Field
-                name="dropdown"
-                multiple={multipleSelection}
-                value={multipleSelection ? selectedItems : selectedItems[0] ?? ""}
-                onChange={handleChange}
-            >
-                {!multipleSelection && (
-                    <option value="" disabled>
-                        {defaultMessage}
-                    </option>
-                )}
-                <For each={dropDownItems}>
-                    {(item) => (
-                        <option key={item} value={item}>
-                            {item}
-                        </option>
-                    )}
-                </For>
-            </NativeSelect.Field>
-            <NativeSelect.Indicator/>
-        </NativeSelect.Root>
+        <Select.Root
+            collection={collection}
+            multiple={multipleSelection}
+            value={selectedItems}
+            disabled={disabled}
+            closeOnSelect={!multipleSelection}
+            onValueChange={(e) => onSelectionChange?.(e.value)}
+            width="100%"
+        >
+            <Select.HiddenSelect/>
+            <Select.Control>
+                <Select.Trigger>
+                    <Select.ValueText placeholder={defaultMessage}/>
+                </Select.Trigger>
+                <Select.IndicatorGroup>
+                    <Select.Indicator/>
+                    <Select.ClearTrigger/>
+                </Select.IndicatorGroup>
+            </Select.Control>
+            <Portal>
+                <Select.Positioner>
+                    <Select.Content>
+                        {collection.items.map((item) => (
+                            <Select.Item item={item} key={item.value}>
+                                {item.label}
+                                <Select.ItemIndicator/>
+                            </Select.Item>
+                        ))}
+                    </Select.Content>
+                </Select.Positioner>
+            </Portal>
+        </Select.Root>
     );
 };
