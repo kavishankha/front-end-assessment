@@ -1,4 +1,4 @@
-import {ColumnChart, Filter} from "@dashboardComponents";
+import {ProductChart, Filter} from "@dashboardComponents";
 import { Grid, GridItem, Box } from "@chakra-ui/react"
 
 export const Dashboard = () => {
@@ -9,7 +9,7 @@ export const Dashboard = () => {
                     <Filter/>
                 </GridItem>
                 <GridItem colSpan={2}>
-                    <ColumnChart/>
+                    <ProductChart/>
                 </GridItem>
             </Grid>
         </Box>
