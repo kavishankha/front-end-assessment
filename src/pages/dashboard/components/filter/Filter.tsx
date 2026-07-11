@@ -1,7 +1,11 @@
 import {Button, Center, Heading, Box, Grid, GridItem} from "@chakra-ui/react"
-// import {DropDown} from "@commonComponents";
+import {DropDown} from "@commonComponents";
+import {useState} from "react";
 
 export const Filter = () => {
+
+    const [selected, setSelected] = useState<string[]>([]);
+
     return (
         <Box width="100%" h="100%">
             <Grid templateRows="repeat(6, 1fr)" templateColumns="repeat(3, 1fr)" h="100%" border="2px solid black">
@@ -21,10 +25,24 @@ export const Filter = () => {
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={3}>
                     <Box h="100%" padding="5">
+                        <DropDown
+                            defaultMessage="Choose a country"
+                            dropDownItems={["United Kingdom", "Canada", "United States"]}
+                            selectedItems={selected}
+                            onChange={setSelected}
+                            multipleSelection={false}
+                        />
                     </Box>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={3}>
                     <Box h="100%" padding="5">
+                        <DropDown
+                            defaultMessage="Choose a country"
+                            dropDownItems={["United Kingdom", "Canada", "United States"]}
+                            selectedItems={selected}
+                            onChange={setSelected}
+                            multipleSelection={true}
+                        />
                     </Box>
                 </GridItem>
                 <GridItem rowSpan={2} colSpan={3}>

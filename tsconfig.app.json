@@ -19,7 +19,7 @@
     /* Path aliases */
     "paths": {
       "@/*": ["./src/*"],
-      "@commonComponents": ["./src/components"],
+      "@commonComponents": ["./src/components/common"],
       "@pages": ["./src/pages"],
       "@dashboardComponents": ["./src/pages/dashboard/components"]
     },
