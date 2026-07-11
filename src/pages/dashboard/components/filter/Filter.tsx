@@ -1,80 +1,44 @@
-// import { Button, Card, Field, NativeSelect,For, Stack ,Flex } from "@chakra-ui/react"
-
-import {Box, Grid, GridItem} from "@chakra-ui/react";
+import {Button, Center, Heading, Box, Grid, GridItem} from "@chakra-ui/react"
+// import {DropDown} from "@commonComponents";
 
 export const Filter = () => {
     return (
-        <Box width="100%" h="100%" padding="4" color="white">
-            <Grid  templateRows="repeat(6, 1fr)"  templateColumns="repeat(2, 1fr)" h="100%" border="2px solid black">
+        <Box width="100%" h="100%">
+            <Grid templateRows="repeat(6, 1fr)" templateColumns="repeat(3, 1fr)" h="100%" border="2px solid black">
+                <GridItem rowSpan={1} colSpan={2}>
+                    <Box h="100%" padding="5">
+                        <Center h="100%" justifyContent="flex-start">
+                            <Heading size="3xl">Filter</Heading>
+                        </Center>
+                    </Box>
+                </GridItem>
                 <GridItem rowSpan={1} colSpan={1}>
-                    <Box h="100%" bg="red" />
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={1}>
-                    <Box h="100%" bg="orange" />
-                </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
-                    <Box h="100%"   bg="blue">
+                    <Box h="100%">
+                        <Center h="100%">
+                            <Button variant="outline">Clear</Button>
+                        </Center>
                     </Box>
                 </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
-                    <Box h="100%"  bg="pink">
+                <GridItem rowSpan={1} colSpan={3}>
+                    <Box h="100%" padding="5">
                     </Box>
                 </GridItem>
-                <GridItem rowSpan={2} colSpan={2}>
-                    <Box h="100%"  bg="red">
+                <GridItem rowSpan={1} colSpan={3}>
+                    <Box h="100%" padding="5">
                     </Box>
                 </GridItem>
-                <GridItem rowSpan={1} colSpan={2}>
-                    <Box h="100%"  bg="yellow">
+                <GridItem rowSpan={2} colSpan={3}>
+                    <Box h="100%">
+                    </Box>
+                </GridItem>
+                <GridItem rowSpan={1} colSpan={3}>
+                    <Box h="100%" padding="5">
+                        <Center h="100%">
+                            <Button width="100%">Cancel</Button>
+                        </Center>
                     </Box>
                 </GridItem>
             </Grid>
         </Box>
     )
 };
-
-// <Card.Root w="full" h="full" border="1px solid black" borderRadius="0" >
-//     <Card.Header justifyContent="flex-end">
-//         <Flex gap="4" justify="space-between">
-//             <Card.Title>Filter</Card.Title>
-//             <Button variant="outline">Clear</Button>
-//         </Flex>
-//     </Card.Header>
-//     <Card.Body>
-//         <Stack gap="10" w="full">
-//             <Field.Root>
-//                 <NativeSelect.Root>
-//                     <NativeSelect.Field name="country">
-//                         <For each={["United Kingdom", "Canada", "United States"]}>
-//                             {(item) => (
-//                                 <option key={item} value={item}>
-//                                     {item}
-//                                 </option>
-//                             )}
-//                         </For>
-//                     </NativeSelect.Field>
-//                     <NativeSelect.Indicator />
-//                 </NativeSelect.Root>
-//             </Field.Root>
-//             <Field.Root>
-//                 <NativeSelect.Root>
-//                     <NativeSelect.Field name="country">
-//                         <For each={["United Kingdom", "Canada", "United States"]}>
-//                             {(item) => (
-//                                 <option key={item} value={item}>
-//                                     {item}
-//                                 </option>
-//                             )}
-//                         </For>
-//                     </NativeSelect.Field>
-//                     <NativeSelect.Indicator />
-//                 </NativeSelect.Root>
-//             </Field.Root>
-//         </Stack>
-//     </Card.Body>
-//     <Card.Footer>
-//         <Flex gap="4" direction="column">
-//             <Button width="100%">Cancel</Button>
-//         </Flex>
-//     </Card.Footer>
-// </Card.Root>
