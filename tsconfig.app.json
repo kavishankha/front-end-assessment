@@ -16,6 +16,14 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Path aliases */
+    "paths": {
+      "@/*": ["src/*"],
+      "@commonComponents": ["src/components"],
+      "@pages": ["src/pages"],
+      "@dashboardComponents": ["src/pages/dashboard/components"]
+    },
+
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
