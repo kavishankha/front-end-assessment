@@ -17,7 +17,7 @@ export const ProductChart = () => {
     if (loading) {
         return (
             <Center h="100%">
-                <Text>Loading...</Text>
+                <Text>Loading</Text>
             </Center>
         );
     }

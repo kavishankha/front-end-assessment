@@ -14,6 +14,14 @@ export const getColumnChartOptions = (data: ChartDataPoint[]): Options => ({
             fontWeight: "bold",
         },
     },
+    subtitle: {
+        text: "",
+        align: "left",
+        style: {
+            color: "#666666",
+            fontSize: "13px",
+        },
+    },
     tooltip: {
         pointFormat: "<b>${point.y:.2f}</b>",
     },

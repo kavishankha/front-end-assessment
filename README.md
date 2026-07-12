@@ -1,10 +1,17 @@
-todo 
+# Assessment
 
-// installin instruction
+## Prerequisites
 
-// folder structure
+node.js (v24 or v22 latest)
 
 
-// idea how to  redux store will be structured
+## Installation
 
-//testing plan
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
