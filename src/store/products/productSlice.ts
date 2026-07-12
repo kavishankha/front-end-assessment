@@ -73,9 +73,10 @@ const productSlice = createSlice({
             state.loading = false;
         },
 
-        // Product details (with price)
-        fetchProductDetailsRequest(state, _action: PayloadAction<number[]>) {
+        // Product details price
+        fetchProductDetailsRequest(state) {
             state.loading = true;
+
         },
         fetchProductDetailsSuccess(state, action: PayloadAction<ProductDetail[]>) {
             state.productDetails = action.payload;
@@ -97,7 +98,7 @@ const productSlice = createSlice({
             state.hasFilterChanged = true;
         },
 
-        // Run report - switch to column chart
+        // Run report
         runReport(state) {
             state.chartType = "column";
             state.reportGenerated = true;
