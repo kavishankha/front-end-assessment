@@ -1,18 +1,15 @@
 import api from "../../services/api";
 
 export const productApi = {
-    getCategories(){
-        return api.get("/categories");
+    getCategories() {
+        return api.get("/products/categories");
     },
 
-    getProducts(categoryId:string){
-        return api.get(`/products?category=${categoryId}`);
+    getProductsByCategory(categoryId: string) {
+        return api.get(`/products/category/${categoryId}`);
     },
 
-    getProductDetails(productId:string){
-        return api.get(`/products/${productId}`
-        );
+    getProductDetails(productIds: number[]) {
+        return Promise.all(productIds.map(id => api.get(`/products/${id}`)));
     }
-
-
 };
