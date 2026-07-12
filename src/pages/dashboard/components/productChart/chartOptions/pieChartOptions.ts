@@ -5,7 +5,7 @@ export const pieChartOptions: Options = {
         backgroundColor: "#ffffff",
     },
     title: {
-        text: "Product Overview",
+        text: "Product Categories",
         align: "left",
         style: {
             color: "#000000",
@@ -14,7 +14,7 @@ export const pieChartOptions: Options = {
         },
     },
     subtitle: {
-        text: "Live data based on filter selection",
+        text: "All available products categories",
         align: "left",
         style: {
             color: "#666666",

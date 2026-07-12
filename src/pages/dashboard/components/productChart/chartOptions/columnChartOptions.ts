@@ -6,20 +6,12 @@ export const getColumnChartOptions = (data: ChartDataPoint[]): Options => ({
         backgroundColor: "#ffffff",
     },
     title: {
-        text: "Product Report",
+        text: "Product In Selected Category",
         align: "left",
         style: {
             color: "#000000",
             fontSize: "18px",
             fontWeight: "bold",
-        },
-    },
-    subtitle: {
-        text: "Generated report data",
-        align: "left",
-        style: {
-            color: "#666666",
-            fontSize: "13px",
         },
     },
     tooltip: {
