@@ -11,6 +11,7 @@ interface ProductState {
     chartData: ChartDataPoint[];
     chartType: ChartType;
     loading: boolean;
+    productsIds: number[];
     error: string | null;
     reportGenerated: boolean;
     hasFilterChanged: boolean;
@@ -25,6 +26,7 @@ const initialState: ProductState = {
     chartData: [],
     chartType: "pie",
     loading: false,
+    productsIds: [],
     error: null,
     reportGenerated: false,
     hasFilterChanged: false,
@@ -74,7 +76,8 @@ const productSlice = createSlice({
         },
 
         // Product details price
-        fetchProductDetailsRequest(state) {
+        fetchProductDetailsRequest(state, action: PayloadAction<number[]>) {
+            state.productsIds = action.payload;
             state.loading = true;
 
         },
